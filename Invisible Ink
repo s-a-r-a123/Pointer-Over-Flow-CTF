@@ -13,4 +13,39 @@ Target link:invisible_text.py
 Steps to find the flag:
 1.The given target file is a python file
 2.Open kali linux
-3.Run the python file
+3.Run the python file in kali linux command:python3 invisible_text_423.py
+4.Inspecting Invisible Characters command:sed -n '1,50l' invisible_text_423.py
+5.We can extract the trailing spaces and tabs with Python.
+program:
+from pathlib import Path
+
+filename = "invisible_text_423.py"
+
+lines = Path(filename).read_bytes().splitlines()
+
+blocks = []
+
+for line in lines:
+    i = len(line)
+
+    while i > 0 and line[i - 1] in b" \t":
+        i -= 1
+
+    hidden = line[i:]
+
+    if hidden:
+        bits = "".join("1" if c == 9 else "0" for c in hidden)
+        blocks.append(bits)
+
+flag = chr(int(blocks[0], 2))
+
+for bits in blocks[2:]:
+    if len(bits) == 12:
+        flag += chr(int(bits, 2))
+
+print(flag)
+---------> run the above program in kali we get the flag
+flag:POCTF{WJCHGZPZHHETGXIG}
+
+This is how i solved the challenge
+
