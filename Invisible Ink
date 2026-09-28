@@ -1,0 +1,16 @@
+Title:Invisible Ink
+Category: Steganography
+
+Challenge Description:
+Humans are the dominant species on the planet. No question. How did we get that way? Because we're smarter? Because we can run longer? Those things might be true - but not for a long time after we're born. We'd never survive to adulthood if those were our main gifts.
+
+No, our main survival trait is exactly what babies are best known for: Crying. Communicating. And we have found millions of ways to do it. Languages, written words, radio, TV, walkie talkies, morse code, ASL... There's just no shutting us up. We communicate, we band together, and we survive. We don't, we die.
+
+But not all messages are broadcast for the world to see. Some secrets need to be kept, and keeping them is an art. In this challenge I have a hidden message. It's not difficult to work out, but I'm confident you'll see what I'm communicating if you look in the right place.
+
+Target link:invisible_text.py
+
+Steps to find the flag:
+1.The given target file is a python file
+2.Open kali linux
+3.Run the python file
