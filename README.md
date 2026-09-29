@@ -1,6 +1,6 @@
 # 🏴‍☠️ POCTF 2026 — CTF Writeups
 
-A collection of my **POCTF 2026** challenge writeups, covering the techniques, enumeration steps, vulnerabilities, tools, and solutions used throughout the competition.
+A collection of my **POCTF 2026** challenge writeups, documenting the techniques, enumeration steps, vulnerabilities, tools, and solutions used throughout the competition.
 
 > **CTF:** Pointer Overflow CTF 2026 (POCTF 2026)
 > **Website:** https://pointeroverflowctf.com/
@@ -17,13 +17,13 @@ This repository documents my approach to solving the challenges, including:
 * 🔐 Cryptography
 * 💥 Binary Exploitation / Pwn
 * 🔬 Digital Forensics
-* 🧩 Miscellaneous Challenges
+* 🧩 Miscellaneous
 * 🕵️ OSINT (Open-Source Intelligence)
 * ⚙️ Reverse Engineering
 * 🖼️ Steganography
 * 🌐 Web Exploitation
 
-The goal of these writeups is not only to record the flags, but also to explain **how the vulnerability was identified and how the solution was developed**.
+The goal of these writeups is not only to document the flags, but also to explain **how the vulnerability or intended technique was identified and how the solution was developed**.
 
 ---
 
@@ -37,7 +37,7 @@ Some of the tools and technologies used throughout the challenges include:
 | Recon               | Nmap, Gobuster, ffuf, DNS tools           |
 | Linux               | Kali Linux, Bash                          |
 | Scripting           | Python, PowerShell                        |
-| Crypto              | CyberChef, Python                         |
+| Cryptography        | CyberChef, Python                         |
 | Forensics           | Wireshark, Binwalk, ExifTool              |
 | Reverse Engineering | Ghidra, strings, objdump, GDB             |
 | Pwn                 | pwntools, GDB                             |
@@ -51,7 +51,7 @@ Some of the tools and technologies used throughout the challenges include:
 
 Each challenge writeup generally follows this structure:
 
-````text
+````markdown
 # Challenge Name
 
 ## 📋 Challenge Description
@@ -68,18 +68,17 @@ Analysis of the application, binary, file, protocol, or vulnerability.
 
 ## 💥 Exploitation
 
-Commands, scripts, payloads, or techniques used to exploit the challenge.
+Commands, scripts, payloads, or techniques used to solve the challenge.
 
 ## 🚩 Flag
 
 ```text
 POCTF{...}
-````
+```
 
 ## 📝 Takeaways
 
 What the challenge taught me and the important concepts involved.
-
 ````
 
 ---
@@ -90,7 +89,7 @@ These writeups contain **complete solutions and flags**.
 
 If you're currently playing POCTF 2026, be aware that opening the challenge directories may reveal the solution.
 
-**Spoiler warning:** 🚨 Proceed at your own risk!
+> 🚨 **Spoiler Warning:** Proceed at your own risk!
 
 ---
 
@@ -98,11 +97,11 @@ If you're currently playing POCTF 2026, be aware that opening the challenge dire
 
 This repository is intended to:
 
-- Document my POCTF 2026 journey.
-- Keep track of techniques and vulnerabilities I encounter.
-- Build a personal cybersecurity reference.
-- Help others understand the underlying concepts.
-- Practice writing clear and reproducible CTF solutions.
+* Document my POCTF 2026 journey.
+* Keep track of techniques and vulnerabilities I encounter.
+* Build a personal cybersecurity reference.
+* Help others understand the underlying concepts.
+* Practice writing clear and reproducible CTF solutions.
 
 ---
 
@@ -110,7 +109,7 @@ This repository is intended to:
 
 Each writeup aims to explain the **reasoning behind the solution**, rather than simply providing the final flag.
 
-Typical flow:
+Typical workflow:
 
 ```text
 Recon
@@ -119,14 +118,14 @@ Enumeration
   ↓
 Identify Interesting Behavior
   ↓
-Analyze Vulnerability
+Analyze Vulnerability / Technique
   ↓
 Develop Exploit / Solution
   ↓
 Capture Flag
   ↓
 Document Findings
-````
+```
 
 ---
 
